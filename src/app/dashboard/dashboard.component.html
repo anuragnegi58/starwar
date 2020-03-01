@@ -1,24 +1,22 @@
-<div class="row">
+<header class="row fix-row">
   <div class="head-section">Welcome {{ username }}</div>
-  <div class="log-out">
-    <button class="btn btn-primary" (click)="logout()">
+    <button class="btn btn-primary log-out" (click)="logout()">
       Logout
     </button>
-  </div>
-</div>
+</header>
 <div class="dashboard-container">
   <input
-    #searchPlanet
+  #searchPlanet
     class="dashboard"
     type="text"
     [formControl]="typeahead"
     placeholder="Search Star Wars Planets"
     (input)="suggest()"
   />
+</div>
+  <div class="container1">
   <div  *ngFor="let suggestion of suggestedPlanets">
-    <!-- <ul *ngFor="let suggestion of suggestedPlanets; let i index">
-        {{ suggestion.name }}
-    </ul> -->
-    <div><app-planet [planetDetails]="suggestion"></app-planet></div>
+    <div class="planet-border"><app-planet [planetDetails]="suggestion"></app-planet></div>
   </div>
+
 </div>

@@ -14,38 +14,38 @@ export class PlanetComponent implements OnInit {
     let size = "10px";
     let margin = "5px";
     if (this.planetDetails.population >= 1000) {
-      size = "20px";
-      this.planetDetails.width = "200px";
+      this.planetDetails.size = "10px";
+      this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 10000) {
-      size = "25px";
+      this.planetDetails.size = "15px";
       margin = "10px";
-      this.planetDetails.width = "300px";
+      this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 100000) {
-      size = "30px";
+      this.planetDetails.size = "20px";
       margin = "13px";
       this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 1000000) {
-      size = "35px";
+      this.planetDetails.size = "25px";
       margin = "17px";
-      this.planetDetails.width = "500px";
+      this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 10000000) {
-      size = "40px";
+      this.planetDetails.size = "28px";
       margin = "20px";
-      this.planetDetails.width = "600px";
+      this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 100000000) {
-      size = "45px";
+      this.planetDetails.size = "30px";
       margin = "23px";
-      this.planetDetails.width = "700px";
+      this.planetDetails.width = "450px";
     }
     if (this.planetDetails.population >= "unknown") {
-      size = "45px";
+      this.planetDetails.size = "35px";
       margin = "23px";
-      this.planetDetails.width = "800px";
+      this.planetDetails.width = "400px";
     }
   }
 
