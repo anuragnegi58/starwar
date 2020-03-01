@@ -15,7 +15,7 @@ export class PlanetComponent implements OnInit {
     let margin = "5px";
     if (this.planetDetails.population >= 1000) {
       this.planetDetails.size = "10px";
-      this.planetDetails.width = "400px";
+      this.planetDetails.width = "250px";
     }
     if (this.planetDetails.population >= 10000) {
       this.planetDetails.size = "15px";
@@ -23,17 +23,17 @@ export class PlanetComponent implements OnInit {
       this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 100000) {
-      this.planetDetails.size = "20px";
+      this.planetDetails.size = "18px";
       margin = "13px";
       this.planetDetails.width = "400px";
     }
     if (this.planetDetails.population >= 1000000) {
-      this.planetDetails.size = "25px";
+      this.planetDetails.size = "22px";
       margin = "17px";
-      this.planetDetails.width = "400px";
+      this.planetDetails.width = "350px";
     }
     if (this.planetDetails.population >= 10000000) {
-      this.planetDetails.size = "28px";
+      this.planetDetails.size = "27px";
       margin = "20px";
       this.planetDetails.width = "400px";
     }
