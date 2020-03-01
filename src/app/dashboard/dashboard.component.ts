@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild,
+  AfterViewInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { AuthenticationService } from "../authentication.service";
 import { Router } from "@angular/router";
@@ -8,7 +9,8 @@ import { Router } from "@angular/router";
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
+  @ViewChild("searchPlanet") searchPlanet: ElementRef;
   public suggestions;
   public suggestedPlanets = [];
   public username: string;
@@ -37,5 +39,9 @@ export class DashboardComponent implements OnInit {
   public logout() {
     sessionStorage.removeItem('user');
     this.router.navigate(['']);
+  }
+
+  public ngAfterViewInit() {
+    this.searchPlanet.nativeElement.focus();
   }
 }
