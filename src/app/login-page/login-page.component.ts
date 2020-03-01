@@ -35,6 +35,7 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    localStorage.clear();
     this.loginForm = this.formBuilder.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
@@ -78,11 +79,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
       });
     });
   }
-public restrictSearch() {
-  if (localStorage.getItem('user') === 'Luke Skywalker') {
-
-  }
-}
 
 public clearError() {
   this.isUserPasswordIncorrect = false;
