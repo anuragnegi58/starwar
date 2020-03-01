@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = sessionStorage.getItem('user');
+    this.username = localStorage.getItem('user');
     this.planetDetails.getPlanetData().subscribe(data => {
       this.suggestions = data;
     });
@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
   public logout() {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user');
     this.router.navigate(['']);
   }
 

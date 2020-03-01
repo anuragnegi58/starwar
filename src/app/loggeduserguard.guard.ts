@@ -23,7 +23,7 @@ export class LoggeduserguardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (sessionStorage.getItem("user")) {
+    if (localStorage.getItem("user")) {
       return true;
     }
     window.alert(`You don't have permission to view this page`);

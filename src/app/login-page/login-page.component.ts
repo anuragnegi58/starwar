@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  public isUserPasswordIncorrect: boolean;
   public people = [];
 
   constructor(
@@ -51,9 +52,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   onSubmit() {
     this.submitted = true;
 
-    // reset alerts on submit
-    //  this.alertService.clear();
-
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
@@ -70,13 +68,25 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
           this.f.username.value === element.name &&
           this.f.password.value === element.birth_year
         ) {
-          sessionStorage.setItem('user', this.f.username.value);
+          localStorage.setItem('user', this.f.username.value);
           this.router.navigate(['dashboard']);
+        } else {
+          this.loading = false;
+          this.isUserPasswordIncorrect = true;
+          return;
         }
       });
     });
   }
+public restrictSearch() {
+  if (localStorage.getItem('user') === 'Luke Skywalker') {
 
+  }
+}
+
+public clearError() {
+  this.isUserPasswordIncorrect = false;
+}
   public ngAfterViewInit() {
     this.username.nativeElement.focus();
   }

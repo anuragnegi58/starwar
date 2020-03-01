@@ -7,6 +7,7 @@
       type="text"
       formControlName="username"
       class="form-control"
+      (input)= "clearError()"
       [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
     />
     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -19,12 +20,14 @@
       type="password"
       formControlName="password"
       class="form-control"
+      (input)= "clearError()"
       [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
     />
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
       <div *ngIf="f.password.errors.required">Password is required</div>
     </div>
   </div>
+  <div *ngIf ="isUserPasswordIncorrect" class="alert alert-danger"> Username or Password is incorrect.</div>
   <div class="form-group">
     <button [disabled]="loading" class="btn btn-primary">
       <span
