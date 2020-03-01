@@ -1,0 +1,45 @@
+
+.dashboard-container {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.dashboard {
+    width: 45%;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  .font-format {
+      color: beige;
+      font-size: 20px;
+  }
+
+  .log-out {
+    margin-left: 1050px;
+    margin-top: -44px;
+  }
+
+  .head-section {
+    color: cornsilk;
+    font-size: 45px;
+    margin-left: 290px;
+    margin-top: 20px;
+  }
+
+ 

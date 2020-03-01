@@ -1,0 +1,7 @@
+.image{
+    height:61em; 
+    background-size:cover;
+    width:auto;
+    background-image:url('../assets/images/starwar.jpg');
+    background-position:50% 50%;
+  }

@@ -1,0 +1,7 @@
+<div class="card" [ngStyle]= "{width: planetDetails.width}">
+    <div class="card-body">
+      <h5 class="card-title">{{planetDetails.name}}</h5>
+      <p class="card-text">Population {{planetDetails.population}}</p>
+      <a (click)='goToPlanet(planetDetails.url)' class="btn btn-primary">Go to planet</a>
+    </div>
+  </div>

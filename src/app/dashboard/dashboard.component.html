@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="head-section">Welcome {{ username }}</div>
+  <div class="log-out">
+    <button class="btn btn-primary" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</div>
+<div class="dashboard-container">
+  <input
+    class="dashboard"
+    type="text"
+    [formControl]="typeahead"
+    placeholder="Search Star Wars Planets"
+    (input)="suggest()"
+  />
+  <div  *ngFor="let suggestion of suggestedPlanets">
+    <!-- <ul *ngFor="let suggestion of suggestedPlanets; let i index">
+        {{ suggestion.name }}
+    </ul> -->
+    <div><app-planet [planetDetails]="suggestion"></app-planet></div>
+  </div>
+</div>
