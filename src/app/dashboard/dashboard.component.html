@@ -6,13 +6,14 @@
 </header>
 <div class="dashboard-container">
   <input
-  #searchPlanet
+    #searchPlanet
     class="dashboard"
     type="text"
     [formControl]="typeahead"
     placeholder="Search Star Wars Planets"
-    (input)="suggest()"
+    (input)="restrictSearch()"
   />
+  <div *ngIf="isSearchDisabled" class="alert alert-danger error-message">You have reached maximum attempt in 1 minute. Please try after 1 minute.</div>
 </div>
   <div class="container1">
   <div  *ngFor="let suggestion of suggestedPlanets">

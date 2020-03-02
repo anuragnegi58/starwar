@@ -58,3 +58,13 @@
 .planet-border {
   margin-left: 10px;
 }
+.error-message {
+  position: fixed;
+  width: 44%;
+  text-align: center;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  top: 5rem;
+  transform: translate(-50%, -50%);
+}
