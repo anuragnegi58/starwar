@@ -28,10 +28,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    // redirect to home if already logged in
-    // if (this.authenticationService.currentUserValue) {
-    //     this.router.navigate(['/']);
-    // }
   }
 
   ngOnInit() {
@@ -57,17 +53,14 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
 
     this.loading = true;
     this.authenticationService.getData().subscribe(data => {
-      this.authenticationService.currentUserSubject.next(data);
-      if (data) {
-        this.people.push(data);
-      }
+      this.people.push(data);
       this.people[0].results.forEach(element => {
         if (
           this.f.username.value === element.name &&
           this.f.password.value === element.birth_year
         ) {
-          localStorage.setItem('user', this.f.username.value);
-          this.router.navigate(['dashboard']);
+          localStorage.setItem("user", this.f.username.value);
+          this.router.navigate(["dashboard"]);
         } else {
           this.loading = false;
           this.isUserPasswordIncorrect = true;
@@ -77,9 +70,9 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-public clearError() {
-  this.isUserPasswordIncorrect = false;
-}
+  public clearError() {
+    this.isUserPasswordIncorrect = false;
+  }
   public ngAfterViewInit() {
     this.username.nativeElement.focus();
   }
