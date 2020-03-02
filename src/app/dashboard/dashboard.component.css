@@ -47,7 +47,6 @@
 .container1 {
   display: flex;
   position: fixed;
-  /* flex-direction: row; */
   align-items: flex-start;
   flex-wrap: wrap;
   top: 11rem;
@@ -55,6 +54,7 @@
   overflow: auto;
   margin-left: 60px;
 }
+
 .planet-border {
   margin-left: 10px;
 }

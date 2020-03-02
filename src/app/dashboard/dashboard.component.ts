@@ -31,9 +31,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     if (!this.typeahead.value || this.typeahead.value === '') {
       this.suggestedPlanets = [];
     } else {
-      this.suggestedPlanets = this.suggestions.results
+      if (this.suggestions && this.suggestions.results) {
+        this.suggestedPlanets = this.suggestions.results
         .filter(data => data.name.toLowerCase().includes(this.typeahead.value.toLowerCase()))
         .slice(0, 5);
+      }
     }
   }
   public logout() {

@@ -21,7 +21,12 @@ export class PlanetDetailsComponent implements OnInit {
       this.planetDetails = data;
     });
   }
-  
+
+  public logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['']);
+  }
+
   public goBack() {
     this.router.navigate(["dashboard"]);
   }

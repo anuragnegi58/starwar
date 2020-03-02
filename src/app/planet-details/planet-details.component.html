@@ -1,3 +1,8 @@
+<header class="row fix-row">
+      <button class="btn btn-primary log-out" (click)="logout()">
+        Logout
+      </button>
+  </header>
 <div class="card planetDetails" *ngIf="planetDetails">
     <div class="card-body">
       <h3 class="card-title">{{planetDetails.name}}</h3>

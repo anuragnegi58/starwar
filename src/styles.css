@@ -5,6 +5,7 @@ body {
     background-size:cover;
     /* width:auto;  */
     background-image:url('./assets/images/starwar.jpg');
+    background-repeat: no-repeat;
     
   
 }

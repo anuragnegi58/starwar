@@ -1,8 +1,13 @@
 .planetDetails {
   width: 50%;
-  background-color: cornsilk;
+  background-color: seashell;
   font-size: 20px;
   text-align: center;
   margin-top: 5rem;
   left: 25%;
+}
+.log-out {
+  position: fixed;
+  right: 5rem;
+  top: 2rem;
 }
