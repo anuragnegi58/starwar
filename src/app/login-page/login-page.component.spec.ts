@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 import { AuthenticationService } from "../authentication.service";
 import { of } from 'rxjs';
 
-fdescribe("LoginPageComponent", () => {
+describe("LoginPageComponent", () => {
   let component: LoginPageComponent;
   let fixture: ComponentFixture<LoginPageComponent>;
   let service: AuthenticationService;
