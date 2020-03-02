@@ -1,10 +1,12 @@
-<div class="card" style="width: 500px;" *ngIf="planetDetails">
+<div class="card planetDetails" *ngIf="planetDetails">
     <div class="card-body">
-      <h5 class="card-title">{{planetDetails.name}}</h5>
+      <h3 class="card-title">{{planetDetails.name}}</h3>
       <p class="card-text">Rotaion Period : {{planetDetails.rotation_period}}</p>
       <p class="card-text">Population : {{planetDetails.population}}</p>
       <p class="card-text"> Orbital Period : {{planetDetails.orbital_period}}</p>
       <p class="card-text">Diameter : {{planetDetails.diameter}}</p>
+      <p class="card-text">Terrain :  {{planetDetails.terrain}}</p>
+      <p class="card-text">Surface Water :  {{planetDetails.surface_water}}</p>
       <p class="card-text">Climate :  {{planetDetails.climate}}</p>
       <p class="card-text">Gravity : {{planetDetails.gravity}}</p>
       <a (click)="goBack()" class="btn btn-primary">Go back to search page</a>
