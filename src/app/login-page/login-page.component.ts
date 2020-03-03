@@ -3,23 +3,26 @@
   OnInit,
   ViewChild,
   ElementRef,
+  OnDestroy,
   AfterViewInit
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthenticationService } from "../authentication.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-login-page",
   templateUrl: "./login-page.component.html",
   styleUrls: ["./login-page.component.css"]
 })
-export class LoginPageComponent implements OnInit, AfterViewInit {
+export class LoginPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("username") username: ElementRef;
   public loginForm: FormGroup;
   public loading = false;
   public submitted = false;
   public returnUrl: string;
+  private subscriptions: Subscription = new Subscription();
   public isUserPasswordIncorrect: boolean;
   public userName: string;
   public people = [];
@@ -56,6 +59,7 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     }
 
     this.loading = true;
+    this.subscriptions.add(
     this.authenticationService.getData().subscribe(data => {
       this.people.push(data);
       this.people[0].results.forEach(element => {
@@ -71,7 +75,7 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
           return;
         }
       });
-    });
+    }));
   }
 
   public clearError() {
@@ -79,5 +83,8 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   }
   public ngAfterViewInit() {
     this.username.nativeElement.focus();
+  }
+  public ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

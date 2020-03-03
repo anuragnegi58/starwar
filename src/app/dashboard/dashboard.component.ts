@@ -3,24 +3,25 @@ import {
   OnInit,
   ElementRef,
   ViewChild,
+  OnDestroy,
   AfterViewInit
 } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { AuthenticationService } from "../authentication.service";
 import { Router } from "@angular/router";
-import { Subject } from "rxjs";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"]
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("searchPlanet") searchPlanet: ElementRef;
   public suggestions;
   public suggestedPlanets = [];
+  private subscriptions: Subscription = new Subscription();
   public username: string;
-  public subject = new Subject<string>();
   public setTimer;
   public count = 0;
   public isSearchDisabled: boolean;
@@ -33,18 +34,20 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.username = localStorage.getItem("user");
     if (!this.username) {
-      this.router.navigate(['']);
+      this.router.navigate([""]);
     }
     if (this.username !== "Luke Skywalker") {
-    this.setTimer = setInterval(() => {
-      this.count = 0;
-      this.typeahead.enable();
-      this.isSearchDisabled = false;
-    }, 60000);
-  }
-    this.planetDetails.getPlanetData().subscribe(data => {
-      this.suggestions = data;
-    });
+      this.setTimer = setInterval(() => {
+        this.count = 0;
+        this.typeahead.enable();
+        this.isSearchDisabled = false;
+      }, 60000);
+    }
+    this.subscriptions.add(
+      this.planetDetails.getPlanetData().subscribe(data => {
+        this.suggestions = data;
+      })
+    );
   }
 
   public suggest() {
@@ -81,5 +84,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit() {
     this.searchPlanet.nativeElement.focus();
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+    clearInterval(this.setTimer);
   }
 }
