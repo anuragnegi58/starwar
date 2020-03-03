@@ -53,7 +53,11 @@ export class PlanetComponent implements OnInit {
       this.planetDetails.width = "400px";
     }
   }
-
+/**
+   * Function will redirect the user to the planet details page
+   *  @param {string} url details
+   * @return {void}
+   */
   public goToPlanet($event) {
   let data = $event.split('/').slice(-2)[0];
   this.router.navigate([`planet/details/${data}`]);

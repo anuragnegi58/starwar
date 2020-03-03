@@ -50,6 +50,10 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
+/**
+   * Function will provide suggestion based on the value entered by the user
+   * @return {void}
+   */
   public suggest() {
     if (!this.typeahead.value || this.typeahead.value === "") {
       this.suggestedPlanets = [];
@@ -63,6 +67,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
   }
+
+  /**
+   * Function will restrict the user search based on user name
+   * @return {void}
+   */
   public restrictSearch() {
     if (this.username !== "Luke Skywalker") {
       this.count++;
@@ -77,6 +86,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.suggest();
     }
   }
+  
+  /**
+   * Function will sign out the user
+   * @return {void}
+   */
   public logout() {
     localStorage.removeItem("user");
     this.router.navigate([""]);

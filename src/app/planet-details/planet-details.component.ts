@@ -30,11 +30,19 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
     }));
   }
 
+/**
+   * Function will sign out the user
+   * @return {void}
+   */
   public logout() {
     localStorage.removeItem('user');
     this.router.navigate(['']);
   }
 
+  /**
+   * Function will take the user to dashboard
+   * @return {void}
+   */
   public goBack() {
     this.router.navigate(["dashboard"]);
   }

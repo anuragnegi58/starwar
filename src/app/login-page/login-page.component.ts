@@ -49,7 +49,10 @@ export class LoginPageComponent implements OnInit, AfterViewInit, OnDestroy {
   get f() {
     return this.loginForm.controls;
   }
-
+/**
+   * Function will be called when user hit login button
+   * @return {void}
+   */
   onSubmit() {
     this.submitted = true;
 
@@ -77,7 +80,10 @@ export class LoginPageComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     }));
   }
-
+/**
+   * Function will clear the error on input
+   * @return {void}
+   */
   public clearError() {
     this.isUserPasswordIncorrect = false;
   }
