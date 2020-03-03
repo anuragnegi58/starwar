@@ -15,7 +15,7 @@
   />
   <div *ngIf="isSearchDisabled" class="alert alert-danger error-message">You have reached maximum attempt in 1 minute. Please try after 1 minute.</div>
 </div>
-  <div class="container1">
+  <div class="planet-container">
   <div  *ngFor="let suggestion of suggestedPlanets">
     <div class="planet-border"><app-planet [planetDetails]="suggestion"></app-planet></div>
   </div>
