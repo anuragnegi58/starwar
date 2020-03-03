@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public setTimer;
   public count = 0;
   public isSearchDisabled: boolean;
-  typeahead: FormControl = new FormControl();
+  public typeahead: FormControl = new FormControl();
   constructor(
     private planetDetails: AuthenticationService,
     private router: Router
@@ -32,6 +32,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.username = localStorage.getItem("user");
+    if (!this.username) {
+      this.router.navigate(['']);
+    }
     if (this.username !== "Luke Skywalker") {
     this.setTimer = setInterval(() => {
       this.count = 0;

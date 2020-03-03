@@ -8,9 +8,14 @@ import { Router } from "@angular/router";
 })
 export class PlanetComponent implements OnInit {
   constructor( private router: Router,) {}
+  public userName: string;
   @Input("planetDetails") planetDetails;
 
   ngOnInit(): void {
+    this.userName = localStorage.getItem('user');
+    if (!this.userName) {
+      this.router.navigate(['']);
+    }
     let size = "10px";
     let margin = "5px";
     if (this.planetDetails.population >= 1000) {

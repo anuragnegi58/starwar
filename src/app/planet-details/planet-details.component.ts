@@ -14,8 +14,13 @@ export class PlanetDetailsComponent implements OnInit {
     private router: Router
   ) {}
   public planetDetails;
+  public userName: string;
 
   ngOnInit(): void {
+    this.userName = localStorage.getItem('user');
+    if (!this.userName) {
+      this.router.navigate(['']);
+    }
     const id = this.route.snapshot.paramMap.get("id");
     this.authenticationService.getPlanetDetails(id).subscribe(data => {
       this.planetDetails = data;

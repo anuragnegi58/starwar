@@ -16,11 +16,12 @@ import { AuthenticationService } from "../authentication.service";
 })
 export class LoginPageComponent implements OnInit, AfterViewInit {
   @ViewChild("username") username: ElementRef;
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+  public loginForm: FormGroup;
+  public loading = false;
+  public submitted = false;
+  public returnUrl: string;
   public isUserPasswordIncorrect: boolean;
+  public userName: string;
   public people = [];
 
   constructor(
@@ -31,7 +32,10 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    localStorage.clear();
+    this.userName = localStorage.getItem('user');
+    if (this.userName) {
+      this.router.navigate(["dashboard"]);
+    }
     this.loginForm = this.formBuilder.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
